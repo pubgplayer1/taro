@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Выбор карт Таро</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background: url('/static/cards/stol.png') center/cover fixed no-repeat;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 24px;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+        .top-row, .bottom-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .card {
+            width: 120px;
+            aspect-ratio: 3/5;
+            background: url('/static/cards/oblozhka.jpg') center/cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        .card.revealed {
+            transform: rotateY(180deg);
+        }
+        .card.selected {
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Выберите 3 карты</h2>
+    </div>
+    <div class="cards-container">
+        <div class="top-row" id="topRow"></div>
+        <div class="bottom-row" id="bottomRow"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
